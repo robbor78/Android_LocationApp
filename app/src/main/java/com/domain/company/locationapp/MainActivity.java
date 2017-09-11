@@ -66,9 +66,12 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
 
         try {
+            Log.d(TAG, "Stopping locationManager...");
             if (locationManager != null) {
                 locationManager.removeUpdates(locationListener);
+                Log.d(TAG,"locationManager removed listener");
             }
+            Log.d(TAG,"Stopping locationManager end.");
         } catch (SecurityException e) {
             e.printStackTrace();
 
@@ -91,7 +94,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_exit) {
+            finish();
+            //moveTaskToBack(true);
+            //android.os.Process.killProcess(android.os.Process.myPid());
+            //System.exit(1);
             return true;
         }
 
