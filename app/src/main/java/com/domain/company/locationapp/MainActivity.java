@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean canAccessLocation() {
-        return (hasPermission(Manifest.permission.ACCESS_FINE_LOCATION));
+        return (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP || hasPermission(Manifest.permission.ACCESS_FINE_LOCATION));
     }
 
     private boolean hasPermission(String perm) {
